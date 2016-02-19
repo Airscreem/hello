@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<ul>
+		<li><a href="#">table</a></li>
+		<li><a href="#">inline</a></li>
+		<li><a href="#">margin-minus</a></li>
+		<li><a href="#">margin-auto</a></li>
+	</ul>
+
+	<!--TABLE... with fixed width and dont fixed height-->
+	<div class="fon table none">
+		<div class="table-cell">
+			<div class="close-block">X</div>
+			<div class="table-block-wrapper">
+				<div class="test-block">
+					<span class="test-text">
+						Hello world, TABLE!
+					</span>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<!--INLINE... dont fixed width and height-->
+	<div class="fon inline none">
+		<div class="close-block">X</div>
+		<div class="f-block"></div>
+		<div class="s-block">
+			<div class="test-block">
+				<span class="test-text">Hello world, INLINE!</span>
+			</div>
+		</div>
+	</div>
+	
+	<!--MARGIN MINUS...fixed width and height-->
+	<div class="fon margin-minus none">
+		<div class="close-block">X</div>
+		<div class="margin-minus-block">
+			<div class="test-block">
+				<span class="test-text">Hello world, MARGIN MINUS!</span>
+			</div>
+		</div>
+	</div>
+
+	<!--MARGIN AUTO...fixed width and height. dont work in IE8-->
+	<div class="fon margin-auto none">
+		<div class="close-block">X</div>
+		<div class="margin-auto-block">
+			<div class="test-block">
+				<span class="test-text">Hello world, MARGIN AUTO!</span>
+			</div>
+		</div>
+	</div>
+
+	<script>
+		var a = document.getElementsByTagName('a');
+		var c = document.querySelectorAll(".close-block");
+		
+		for(var i = 0; i < a.length; i++) {
+			(function(i) {
+				var data = a[i].innerHTML;
+				a[i].addEventListener("click", function() {
+					show(data);
+				}, false);
+				c[i].addEventListener("click", function() {
+					hide(data);
+				}, false);
+			})(i);
+		}
+
+		function show(attr) {
+			var block = document.querySelector('.'+attr);
+			block.classList.remove('none');
+		}
+		function hide(attr) {
+			var block = document.querySelector('.'+attr);
+			block.classList.add('none');
+		}
+	</script>
+</body>
+</html>
